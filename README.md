@@ -1,4 +1,4 @@
-dingli: A typst package for theorems
+ega-numbering: A typst package for EGA style numbering
 ====================================
 
 This package provides a referable numbering style 
