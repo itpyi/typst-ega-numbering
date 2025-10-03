@@ -9,7 +9,7 @@ fi
 
 TAG=$1
 PACKAGE_NAME="ega-numbering" # 🔄 替换为您的包名
-TARGET_DIR="$HOME/.local/share/typst/packages/local/$PACKAGE_NAME/$TAG"
+TARGET_DIR="$HOME/Library/Application Support/typst/packages/local/$PACKAGE_NAME/$TAG"
 
 # 检查标签是否存在
 if ! git rev-parse "$TAG" >/dev/null 2>&1; then
@@ -27,7 +27,7 @@ fi
 mkdir -p "$TARGET_DIR"
 
 # 检出标签对应的 src 内容到目标目录
-git archive --format=tar "$TAG" src/ | tar -x -C "$TARGET_DIR"
+git archive --format=tar "$TAG" src/ | tar -x --strip-components=1  -C "$TARGET_DIR"
 
 echo "✅ Deployed version $TAG to local package directory"
 echo "📂 Path: $TARGET_DIR"
