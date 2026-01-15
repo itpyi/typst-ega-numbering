@@ -1,49 +1,71 @@
 ega-numbering: A typst package for EGA style numbering
 ====================================
 
-This package provides a referable numbering style 
-like that of Éléments de géométrie algébrique (EGA)
+**0.1.** This Typst package provides a referable numbering style 
+like that of Éléments de géométrie algébrique (EGA): continuously numbering everything, including definitions, theorems with or without a proof, remarks, or simply some consecutive paragraphs discussing one idea.
+Each numbered element can have a label to be referred to.
+We believe this style is very suitable for keeping notes and sorting out the logical flow.
+
+**0.2.** Although we use EGA to name this numbering style, the appearance of this package resembles Max Karoubi's [K-Theory (An Introduction)](https://link.springer.com/book/10.1007/978-3-540-79890-3) published by Springer. This readme file shows an example of its effect for demonstration, although implemented by hand since it is written in markdown.
 
 ## Quick start
 
+**1.1.** To use this package, import and set show rules as follows. 
+
+```typst
+#import "@preview/ega-numbering:0.1.0": *
+
+#show: ega-rules.with(level: 1)
+
+#num-par[
+    The contents...
+]
+```
+
+This will set the numbering level to 1. See below for details.
 
 ## Details in behaviour
 
 ### Setting numbering levels quickly
 
-You can determine yourself whether the theorems are numbered as 
-- Theorem 1, 2,... with title level 0,
-- Theorem 1.1, 1.2, 2.1,... with title level 1, or
-- Theorem 1.1.1, 1.1.2, 1.2.1, 2.1.1,... with title level 2,
-- ......
+**2.1.** You can determine whether the numbering style is
+- 1, 2, 3, ...
+- 1.1, 1.2, 2.1, 2.2, 2.3, ...
+- 1.1.1, 1.1.2, 1.2.1, 2.1.1, ... 
 
-You can set this numbering level by only one argument in the `ega-rules`.
+These correspond to different numbering levels, being 0, 1, 2 respectively.
+
+You can set this numbering level by the `level` argument in the `ega-rules`.
 
 
-```typ
+```typst
 #show: ega-rules.with(level: 1)
 ```
 
-See examples for details.
+The default value is 0
 
 ### Weak vertical space 
 
-A theorem is vertically separated with paragraphs, other theorems or anything around it. The separation is weak. That is, the separation between two consecutive theorems is the same as the separation between a theorem and a normal paragraph.
+**2.2.** Different numbered elements are vertically separated. One can adjust the separation by the parameters `upper` and `lower`, whose default values are both 2em.
 
-The default separation is set to 2em for both the upper and the lower separation. You can change it by giving arguments to the `ega-rules`.
+Note that the separation is weak. That is, they are not counted repeatedly. 
+For example, vertical separations between two consecutive elements are 2em by default.
 
-```typ
+**2.3. Example.** Here is an example changing the separation in `ega-rules`.
+
+```typst
 #show: ega-rules.with(
     upper: 1.5em,
     lower: 1.5em,
 )
 ```
 
-### Correct indent of paragraph followed
+### Names of a numbered element
 
-If you have turned on the first line indent without enabling `all`, you will get the correct indention after a theorem. This is because we have inserted a virtual paragraph after a theorem, so that the following paragraph will see a paragraph as its preceding block-level element.
-
-
-## To do and not to do
-
-### To do
+**2.4.** One can specify the name of a numbered element as follows.
+```typ
+#num-par([Example])[
+    This is the example...
+]
+```
+This will yield something like 2.3.

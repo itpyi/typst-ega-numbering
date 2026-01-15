@@ -58,7 +58,7 @@ context v(-par.spacing -  measure("").height)
   
 
 // show rules
-#let ega-rules(doc, level: 0, upper: 2em, lower: 2em) = {
+#let ega-rules(level: 0, upper: 2em, lower: 2em, body) = {
   ega-inpackage-numbering-level.update(level)
   ega-inpackage-vertical-padding.update((upper, lower))
   show heading: it => {
@@ -91,5 +91,5 @@ context v(-par.spacing -  measure("").height)
       it
     }
   }
-  doc
+  body
 }

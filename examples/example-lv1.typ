@@ -1,20 +1,46 @@
-#import "@local/ega-numbering:0.1.0": *
+#import "../src/ega.typ": *
 
-#show: ega-rules.with(
-  level: 1,
-)
+#set heading(numbering: "1.")
 
+#show: ega-rules.with(level: 1)
 
 #align(
   center,
   text(17pt)[
-    *Default behaviours for pre-defined terms*
+    *Example for the ega-numbering package\ with numbering level 1*
   ]
 )
 
-#set heading(numbering: "1.")
+#num-par[
+The level of the counter is set by
 
-#num-par[This is the first theorem that is not in any section.]
-
+```typst
+#show: dingli-rules.with(level: 1)
+```
+]<level>
 
 = Section
+
+#num-par[
+  In this section, we discuss ...
+]
+
+#num-par([Theorem])[
+  This is a theorem ...
+]
+
+== Subsection
+
+#num-par[
+We discussed how to set the level of the counter in @level.
+]
+
+= Section 
+
+#num-par[
+  #lorem(20)
+
+  #lorem(30)
+]
+
+#num-par[#lorem(20)]

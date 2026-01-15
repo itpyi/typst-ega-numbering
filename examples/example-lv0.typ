@@ -1,34 +1,38 @@
-#import "../0.2.0/dingli.typ": *
+#import "../src/ega.typ": *
 
 // #set text(font: ("Libertinus Serif", "Songti SC"), size: 12pt)
-#show: dingli-rules
+#show: ega-rules
 
 #align(
   center,
   text(17pt)[
-    *Example for the dingli package\ with numbering level 0*
+    *Example for the ega-numbering package\ with numbering level 0*
   ]
 )
 
-The counter level is set by 
+#num-par[
+The level of the counter is set by
+
 ```typst
 #show: dingli-rules.with(level: 0)
 ```
-
-#theorem[#lorem(20)]
-
-#lemma[#lorem(20)]
-
-You can refer to a theorem as @lem.
+]<level>
 
 = Section
 
-#lemma[#lorem(20)]<lem>
+#num-par[
+  In this section, we discuss ...
+]
+
+#num-par([Theorem])[
+  This is a theorem ...
+]
 
 == Subsection
 
-#theorem[#lorem(19)]
+#num-par[
+We discussed how to set the level of the counter in @level.
+]
 
-Numbering is not affected by sections.
 
-#remark[#lorem(20)]
+
