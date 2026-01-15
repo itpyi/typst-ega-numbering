@@ -1,4 +1,4 @@
-ega-numbering: A typst package for EGA style numbering
+ega-numbering: A Typst package for EGA style numbering
 ====================================
 
 **0.1.** This Typst package provides a referable numbering style 
@@ -69,3 +69,12 @@ For example, vertical separations between two consecutive elements are 2em by de
 ]
 ```
 This will yield something like 2.3.
+
+**2.5.** Although it is possible to give an element a name like "Theorem" or "Example", when referring to the element, `@label` always yields only the number. 
+This is because the user may want to add other prefix or parenthesis to this number. 
+Over design may cause inconvenience rather than the opposite.
+
+
+## Examples
+
+**2.6.** For more examples, check this [GitHub Repo](https://github.com/itpyi/typst-ega-numbering/tree/main/examples).

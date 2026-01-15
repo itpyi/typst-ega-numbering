@@ -1,3 +1,4 @@
 **/ega.pdf
 .vscode/*
 test/
+.DS_Store
