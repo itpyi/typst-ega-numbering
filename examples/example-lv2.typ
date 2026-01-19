@@ -15,7 +15,7 @@
 The level of the counter is set by
 
 ```typst
-#show: dingli-rules.with(level: 2)
+#show: ega-rules.with(level: 2)
 ```
 ]<level>
 
